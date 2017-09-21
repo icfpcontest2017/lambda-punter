@@ -1,0 +1,27 @@
+opam-version: "1.2"
+name: "lambda-punter"
+version: "0.1"
+
+available: [
+  ocaml-version >= "4.04.0"
+  lwt-version >= "3.0.0"
+]
+
+build: [
+  [ make "native" ]
+]
+
+install: [
+  [ "cp" "lampunt" "%{lambda-punter:bin}%/lampunt" ]
+]
+
+remove: [
+  [ "rm" "-f" "%{lambda-punter:bin}%/lampunt"      ]
+]
+
+depends: [
+  "ocamlfind" {build}
+  "lwt"
+  "ocamlgraph"
+  "yojson"
+]
